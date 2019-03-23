@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
 import com.go_jek.Parking_Lot.parking_lot.command.CommandController;
 
 public class InputParser {
@@ -33,11 +34,11 @@ public class InputParser {
 					parseTextInput(line.trim());
 				}
 			} catch (IOException ex) {
-				Printer.printMessage("Error in reading the input file.",true);
+				Printer.printMessage(Constants.ERROR_READING_FILE, true);
 				ex.printStackTrace();
 			}
 		} catch (FileNotFoundException e) {
-			Printer.printMessage("File not found in the path specified.",true);
+			Printer.printMessage(Constants.FILE_NOT_FOUND, true);
 			e.printStackTrace();
 		}
 	}

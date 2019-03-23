@@ -21,6 +21,8 @@ public class Constants {
 	public static final String DATA_STRING_FORMAT = "%-10s  %10s      %s ";
 	public static final String ALLOCATED_SLOT_NUMBER = "Allocated slot number: ";
 	public static final String PARKING_FULL = "Sorry, parking lot is full";
+	public static final String ERROR_READING_FILE = "Error in reading the input file.";
+	public static final String FILE_NOT_FOUND = "File not found in the path specified.";
 
 	public enum VehicleType {
 		CAR, TRUCK, ELECTRIC, VAN, MOTORCYCLE
