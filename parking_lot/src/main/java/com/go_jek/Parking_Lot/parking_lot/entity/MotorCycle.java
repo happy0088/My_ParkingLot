@@ -18,6 +18,7 @@ public class MotorCycle extends Vehicle {
 		this.color = color;
 		this.registrationNumber = registrationNumber;
 		this.spotsNeeded = 1;
+		this.parkingSpotType=parkingSpotType.SMALL;
 	}
 
 	public boolean canFitInSpot(ParkingSpot spot) {

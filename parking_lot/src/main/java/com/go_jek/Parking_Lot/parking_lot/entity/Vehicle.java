@@ -1,15 +1,26 @@
 package com.go_jek.Parking_Lot.parking_lot.entity;
 
+import com.go_jek.Parking_Lot.parking_lot.utils.Constants.ParkingSpotType;
+
 public abstract class Vehicle {
 	protected String registrationNumber;
 	protected int spotsNeeded;
 	protected String color;
-	
-	public abstract Vehicle initializeVehicle(String registrationNumber, String color) ;
+	protected ParkingSpotType parkingSpotType;
+
+	public abstract Vehicle initializeVehicle(String registrationNumber, String color);
 
 	public abstract boolean canFitInSpot(ParkingSpot spot);
 
 	public abstract void printVehicleDetails();
+
+	public ParkingSpotType getParkingSpotType() {
+		return parkingSpotType;
+	}
+
+	public void setParkingSpotType(ParkingSpotType parkingSpotType) {
+		this.parkingSpotType = parkingSpotType;
+	}
 
 	public String getRegistrationNumber() {
 		return registrationNumber;
@@ -34,6 +45,5 @@ public abstract class Vehicle {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	
-	
+
 }

@@ -12,6 +12,7 @@ public class InputParserTest {
 	@Test
 	public void checkTextInputType() {
 		Printer.printMessage("checkTextInputType test",true);
+		parser.parseFileInput("file_inputs.txt");
 	}
 
 }

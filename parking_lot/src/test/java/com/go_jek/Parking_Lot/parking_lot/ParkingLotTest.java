@@ -21,7 +21,7 @@ public class ParkingLotTest {
 	Vehicle vehicle1 = new VehicleFactory().getVehicle(VehicleType.CAR, registrationNumber1, color1);
 	String registrationNumber2 = "DEF-123-345";
 	String color2 = "Black";
-	Vehicle vehicle2 = new VehicleFactory().getVehicle(VehicleType.CAR, registrationNumber2, color2);
+	Vehicle vehicle2 = new VehicleFactory().getVehicle(VehicleType.MOTORCYCLE, registrationNumber2, color2);
 
 	@Test
 	public void testSingletonBehavior() {
