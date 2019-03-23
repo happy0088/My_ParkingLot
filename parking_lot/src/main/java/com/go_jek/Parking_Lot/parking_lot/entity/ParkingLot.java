@@ -1,4 +1,4 @@
-package main.com.gojek.parking_lot.entity;
+package com.go_jek.Parking_Lot.parking_lot.entity;
 
 public class ParkingLot {
 

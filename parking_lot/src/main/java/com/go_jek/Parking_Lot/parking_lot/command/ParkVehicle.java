@@ -1,6 +1,6 @@
-package main.com.gojek.parking_lot.command;
+package com.go_jek.Parking_Lot.parking_lot.command;
 
-import main.com.gojek.parking_lot.service.ParkingService;
+import com.go_jek.Parking_Lot.parking_lot.service.ParkingService;
 
 public class ParkVehicle implements ICommand {
 

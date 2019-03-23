@@ -1,7 +1,7 @@
 /**
  * 
  */
-package main.com.gojek.parking_lot.command;
+package com.go_jek.Parking_Lot.parking_lot.command;
 
 /**
  * @author happy Singh

@@ -1,4 +1,4 @@
-package test.com.gojek.parking_lot;
+package com.go_jek.Parking_Lot.parking_lot;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -6,11 +6,11 @@ import java.util.List;
 import org.junit.Test;
 
 import junit.framework.TestCase;
-import main.com.gojek.parking_lot.entity.Car;
-import main.com.gojek.parking_lot.entity.ParkingLot;
-import main.com.gojek.parking_lot.entity.Vehicle;
-import main.com.gojek.parking_lot.service.ParkingService;
-import main.com.gojek.parking_lot.utils.Constants;
+import com.go_jek.Parking_Lot.parking_lot.entity.Car;
+import com.go_jek.Parking_Lot.parking_lot.entity.ParkingLot;
+import com.go_jek.Parking_Lot.parking_lot.entity.Vehicle;
+import com.go_jek.Parking_Lot.parking_lot.service.ParkingService;
+import com.go_jek.Parking_Lot.parking_lot.utils.Constants;
 
 public class ParkingLotTest {
 

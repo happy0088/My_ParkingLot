@@ -1,6 +1,6 @@
-package main.com.gojek.parking_lot.entity;
+package com.go_jek.Parking_Lot.parking_lot.entity;
 
-import main.com.gojek.parking_lot.utils.Printer;
+import com.go_jek.Parking_Lot.parking_lot.utils.Printer;
 
 public class MotorCycle extends Vehicle {
 

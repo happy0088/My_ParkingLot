@@ -1,4 +1,4 @@
-package main.com.gojek.parking_lot.utils;
+package com.go_jek.Parking_Lot.parking_lot.utils;
 
 public class Constants {
 

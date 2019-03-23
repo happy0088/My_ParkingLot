@@ -1,11 +1,11 @@
-package main.com.gojek.parking_lot.utils;
+package com.go_jek.Parking_Lot.parking_lot.utils;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import main.com.gojek.parking_lot.command.CommandController;
+import com.go_jek.Parking_Lot.parking_lot.command.CommandController;
 
 public class InputParser {
 	CommandRepository commands;

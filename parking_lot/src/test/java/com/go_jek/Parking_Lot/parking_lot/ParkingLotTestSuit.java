@@ -1,4 +1,4 @@
-package test.com.gojek.parking_lot;
+package com.go_jek.Parking_Lot.parking_lot;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

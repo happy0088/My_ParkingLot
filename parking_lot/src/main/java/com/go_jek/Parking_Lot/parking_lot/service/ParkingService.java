@@ -1,4 +1,4 @@
-package main.com.gojek.parking_lot.service;
+package com.go_jek.Parking_Lot.parking_lot.service;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,12 +10,12 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
-import main.com.gojek.parking_lot.entity.ParkingLot;
-import main.com.gojek.parking_lot.entity.Vehicle;
-import main.com.gojek.parking_lot.entity.VehicleFactory;
-import main.com.gojek.parking_lot.utils.Constants;
-import main.com.gojek.parking_lot.utils.Constants.VehicleType;
-import main.com.gojek.parking_lot.utils.Printer;
+import com.go_jek.Parking_Lot.parking_lot.entity.ParkingLot;
+import com.go_jek.Parking_Lot.parking_lot.entity.Vehicle;
+import com.go_jek.Parking_Lot.parking_lot.entity.VehicleFactory;
+import com.go_jek.Parking_Lot.parking_lot.utils.Constants;
+import com.go_jek.Parking_Lot.parking_lot.utils.Constants.VehicleType;
+import com.go_jek.Parking_Lot.parking_lot.utils.Printer;
 
 public class ParkingService {
 

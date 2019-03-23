@@ -1,17 +1,17 @@
-package main.com.gojek.parking_lot.utils;
+package com.go_jek.Parking_Lot.parking_lot.utils;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import main.com.gojek.parking_lot.command.CommandController;
-import main.com.gojek.parking_lot.command.CreateParkingLot;
-import main.com.gojek.parking_lot.command.GetRegistrationNumbersFromColor;
-import main.com.gojek.parking_lot.command.GetSlotNumberFromRegNo;
-import main.com.gojek.parking_lot.command.GetSlotNumbersFromColor;
-import main.com.gojek.parking_lot.command.ICommand;
-import main.com.gojek.parking_lot.command.ParkVehicle;
-import main.com.gojek.parking_lot.command.Status;
-import main.com.gojek.parking_lot.command.UnParkVehicle;
+import com.go_jek.Parking_Lot.parking_lot.command.CommandController;
+import com.go_jek.Parking_Lot.parking_lot.command.CreateParkingLot;
+import com.go_jek.Parking_Lot.parking_lot.command.GetRegistrationNumbersFromColor;
+import com.go_jek.Parking_Lot.parking_lot.command.GetSlotNumberFromRegNo;
+import com.go_jek.Parking_Lot.parking_lot.command.GetSlotNumbersFromColor;
+import com.go_jek.Parking_Lot.parking_lot.command.ICommand;
+import com.go_jek.Parking_Lot.parking_lot.command.ParkVehicle;
+import com.go_jek.Parking_Lot.parking_lot.command.Status;
+import com.go_jek.Parking_Lot.parking_lot.command.UnParkVehicle;
 
 public class CommandRepository {
 

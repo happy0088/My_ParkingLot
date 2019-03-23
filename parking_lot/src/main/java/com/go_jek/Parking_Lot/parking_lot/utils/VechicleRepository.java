@@ -1,12 +1,12 @@
-package main.com.gojek.parking_lot.utils;
+package com.go_jek.Parking_Lot.parking_lot.utils;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import main.com.gojek.parking_lot.entity.Car;
-import main.com.gojek.parking_lot.entity.MotorCycle;
-import main.com.gojek.parking_lot.entity.Vehicle;
-import main.com.gojek.parking_lot.utils.Constants.VehicleType;
+import com.go_jek.Parking_Lot.parking_lot.entity.Car;
+import com.go_jek.Parking_Lot.parking_lot.entity.MotorCycle;
+import com.go_jek.Parking_Lot.parking_lot.entity.Vehicle;
+import com.go_jek.Parking_Lot.parking_lot.utils.Constants.VehicleType;
 
 public class VechicleRepository {
 
