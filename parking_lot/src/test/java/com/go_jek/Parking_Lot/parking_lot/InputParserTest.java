@@ -13,6 +13,8 @@ public class InputParserTest {
 	public void checkTextInputType() {
 		Printer.printMessage("checkTextInputType test",true);
 		parser.parseFileInput("file_inputs.txt");
+		String args[] = {""};
+		MainDriver.main(args);
 	}
 
 }
