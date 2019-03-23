@@ -46,10 +46,11 @@ public class ParkingService {
 		return false;
 	}
 
-	public void createParkingLot(String size) {
+	public String createParkingLot(String size) {
 		allocateFreeSlots(Integer.parseInt(size));
-		outPutMessage = "Created a parking lot with " + size + " slots";
+		outPutMessage = Constants.CREATED_PARKING_LOT_WITH + size + Constants.SLOTS;
 		Printer.printMessage(outPutMessage, true);
+		return outPutMessage;
 	}
 
 	public int getAvailableSlotCount() {

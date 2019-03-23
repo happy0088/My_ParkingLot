@@ -27,7 +27,9 @@ public class Constants {
 	public static final String PARKING_EMPTY = "Parking is empty";
 	public static final String HEADER_SLOT_NO = "Slot No.";
 	public static final String HEADER_REGISTRATION_NO = "Registration No";
-	public static final String HEADER_COLOR ="Colour";
+	public static final String HEADER_COLOR = "Colour";
+	public static final String CREATED_PARKING_LOT_WITH = "Created a parking lot with ";
+	public static final String SLOTS = " slots";
 
 	public enum VehicleType {
 		CAR, TRUCK, ELECTRIC, VAN, MOTORCYCLE
