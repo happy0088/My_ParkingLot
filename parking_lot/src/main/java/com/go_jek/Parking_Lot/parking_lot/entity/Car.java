@@ -5,14 +5,15 @@ import com.go_jek.Parking_Lot.parking_lot.utils.Printer;
 public class Car extends Vehicle {
 	public static final Car BASE_INSTANCE = new Car();
 
-	public Car() {
+	private Car() {
 
 	}
 
-	public Car(String registrationNumber, String color) {
-		spotsNeeded = 1;
-		this.registrationNumber = registrationNumber;
-		this.color = color;
+	public Vehicle initializeVehicle(String registrationNumber, String color) {
+		BASE_INSTANCE.setRegistrationNumber(registrationNumber);
+		BASE_INSTANCE.setColor(color);
+		BASE_INSTANCE.setSpotsNeeded(1);
+		return BASE_INSTANCE;
 	}
 
 	public boolean canFitInSpot(ParkingSpot spot) {

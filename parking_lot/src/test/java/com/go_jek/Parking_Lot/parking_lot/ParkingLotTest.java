@@ -2,15 +2,17 @@ package com.go_jek.Parking_Lot.parking_lot;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+
 import java.util.List;
+
 import org.junit.Test;
 
-import junit.framework.TestCase;
-import com.go_jek.Parking_Lot.parking_lot.entity.Car;
 import com.go_jek.Parking_Lot.parking_lot.entity.ParkingLot;
 import com.go_jek.Parking_Lot.parking_lot.entity.Vehicle;
+import com.go_jek.Parking_Lot.parking_lot.entity.VehicleFactory;
 import com.go_jek.Parking_Lot.parking_lot.service.ParkingService;
 import com.go_jek.Parking_Lot.parking_lot.utils.Constants;
+import com.go_jek.Parking_Lot.parking_lot.utils.Constants.VehicleType;
 
 public class ParkingLotTest {
 
@@ -19,10 +21,10 @@ public class ParkingLotTest {
 	ParkingService parkingService = new ParkingService();
 	String registrationNumber1 = "ABC-123-345";
 	String color1 = "White";
-	Vehicle vehicle1 = new Car(registrationNumber1, color1);
+	Vehicle vehicle1 = new VehicleFactory().getVehicle(VehicleType.CAR, registrationNumber1, color1);
 	String registrationNumber2 = "DEF-123-345";
 	String color2 = "Black";
-	Vehicle vehicle2 = new Car(registrationNumber2, color2);
+	Vehicle vehicle2 =new VehicleFactory().getVehicle(VehicleType.CAR, registrationNumber2, color2);
 
 	@Test
 	public void testSingletonBehavior() {

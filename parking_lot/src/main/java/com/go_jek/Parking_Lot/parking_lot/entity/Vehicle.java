@@ -4,6 +4,12 @@ public abstract class Vehicle {
 	protected String registrationNumber;
 	protected int spotsNeeded;
 	protected String color;
+	
+	public abstract Vehicle initializeVehicle(String registrationNumber, String color) ;
+
+	public abstract boolean canFitInSpot(ParkingSpot spot);
+
+	public abstract void printVehicleDetails();
 
 	public String getRegistrationNumber() {
 		return registrationNumber;
@@ -13,6 +19,14 @@ public abstract class Vehicle {
 		this.registrationNumber = registrationNumber;
 	}
 
+	public int getSpotsNeeded() {
+		return spotsNeeded;
+	}
+
+	public void setSpotsNeeded(int spotsNeeded) {
+		this.spotsNeeded = spotsNeeded;
+	}
+
 	public String getColor() {
 		return color;
 	}
@@ -20,16 +34,6 @@ public abstract class Vehicle {
 	public void setColor(String color) {
 		this.color = color;
 	}
-
-	public void setSpotsNeeded(int spotsNeeded) {
-		this.spotsNeeded = spotsNeeded;
-	}
-
-	public int getSpotsNeeded() {
-		return spotsNeeded;
-	}
-
-	public abstract boolean canFitInSpot(ParkingSpot spot);
-
-	public abstract void printVehicleDetails();
+	
+	
 }

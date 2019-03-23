@@ -10,6 +10,13 @@ public class MotorCycle extends Vehicle {
 
 	}
 
+	public Vehicle initializeVehicle(String registrationNumber, String color) {
+		BASE_INSTANCE.setRegistrationNumber(registrationNumber);
+		BASE_INSTANCE.setColor(color);
+		BASE_INSTANCE.setSpotsNeeded(1);
+		return BASE_INSTANCE;
+	}
+
 	public MotorCycle(String registrationNumber, String color) {
 		spotsNeeded = 1;
 		this.registrationNumber = registrationNumber;

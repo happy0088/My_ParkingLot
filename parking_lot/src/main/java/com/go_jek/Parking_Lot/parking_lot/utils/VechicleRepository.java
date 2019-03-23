@@ -10,22 +10,10 @@ import com.go_jek.Parking_Lot.parking_lot.utils.Constants.VehicleType;
 
 public class VechicleRepository {
 
-	public Map<VehicleType, Vehicle> vehicleMap;
-	Vehicle car = new Car();
-	Vehicle motorcycle = new MotorCycle();
-
-	public VechicleRepository() {
-		vehicleMap = new HashMap<VehicleType, Vehicle>();
-		try {
-			populateVehicleHashMap();
-		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
+	public static final Map<VehicleType, Vehicle> vehicleMap = new HashMap<VehicleType, Vehicle>() {
+		{
+			put(VehicleType.CAR, Car.BASE_INSTANCE);
+			put(VehicleType.MOTORCYCLE, MotorCycle.BASE_INSTANCE);
 		}
-	}
-
-	private void populateVehicleHashMap() throws NoSuchMethodException {
-		vehicleMap.put(VehicleType.CAR, car);
-		vehicleMap.put(VehicleType.MOTORCYCLE, motorcycle);
-
-	}
+	};
 }
