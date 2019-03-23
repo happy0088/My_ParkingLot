@@ -18,7 +18,7 @@ public class InputParser {
 
 	public void parseTextInput(String inputString) {
 		// Split the input string to get command and input value
-		String[] inputs = inputString.split(" ");
+		String[] inputs = inputString.split(Constants.INPUT_STRING_DELIMETER);
 		controller.setCommand(commands.commandsMap.get(inputs[0]));
 		controller.fireCommand(inputs);
 	}

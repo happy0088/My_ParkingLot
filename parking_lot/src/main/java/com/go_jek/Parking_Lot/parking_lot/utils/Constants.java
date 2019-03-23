@@ -23,6 +23,7 @@ public class Constants {
 	public static final String PARKING_FULL = "Sorry, parking lot is full";
 	public static final String ERROR_READING_FILE = "Error in reading the input file.";
 	public static final String FILE_NOT_FOUND = "File not found in the path specified.";
+	public static final String INPUT_STRING_DELIMETER=" ";
 
 	public enum VehicleType {
 		CAR, TRUCK, ELECTRIC, VAN, MOTORCYCLE
