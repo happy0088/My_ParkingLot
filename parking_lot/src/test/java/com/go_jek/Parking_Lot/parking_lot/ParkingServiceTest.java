@@ -21,10 +21,11 @@ public class ParkingServiceTest {
 	
 	@Test
 	public void checkPark() {
-		String size = "10";
-		String expected = Constants.CREATED_PARKING_LOT_WITH + size + Constants.SLOTS;
-		String outputMessage = service.park(regNumber, color)(size);
-		assertEquals(expected, outputMessage);
+		String regNumber="KA 1234";
+		String color="Orange";
+		service.createParkingLot("10");
+		String outputMessage = service.park(regNumber, color);
+		assertEquals(regNumber, outputMessage);
 	}
 
 }

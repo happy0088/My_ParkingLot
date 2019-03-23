@@ -46,6 +46,15 @@ public class ParkingService {
 		return false;
 	}
 
+	public String vacateParkingLot()
+	{
+		availableSlots.clear();
+		registrationColorMap.clear();
+		registrationSlotMap.clear();
+		return null;
+		
+	}
+	
 	public String createParkingLot(String size) {
 		allocateFreeSlots(Integer.parseInt(size));
 		outPutMessage = Constants.CREATED_PARKING_LOT_WITH + size + Constants.SLOTS;
@@ -69,8 +78,8 @@ public class ParkingService {
 			int location = availableSlots.first();
 			registrationSlotMap.put(vehicle.getRegistrationNumber(), location);
 			registrationColorMap.put(vehicle.getRegistrationNumber(), vehicle.getColor());
-			outPutMessage = Constants.ALLOCATED_SLOT_NUMBER;
-			Printer.printMessage(outPutMessage + location, true);
+			outPutMessage = Constants.ALLOCATED_SLOT_NUMBER+ location;
+			Printer.printMessage(outPutMessage , true);
 			availableSlots.remove(location);
 			return vehicle.getRegistrationNumber();
 		} else {
