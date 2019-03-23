@@ -10,10 +10,13 @@ public class Car extends Vehicle {
 	}
 
 	public Vehicle initializeVehicle(String registrationNumber, String color) {
-		BASE_INSTANCE.setRegistrationNumber(registrationNumber);
-		BASE_INSTANCE.setColor(color);
-		BASE_INSTANCE.setSpotsNeeded(1);
-		return BASE_INSTANCE;
+		return new Car(registrationNumber, color);
+	}
+
+	public Car(String registrationNumber, String color) {
+		this.color = color;
+		this.registrationNumber = registrationNumber;
+		this.spotsNeeded = 1;
 	}
 
 	public boolean canFitInSpot(ParkingSpot spot) {

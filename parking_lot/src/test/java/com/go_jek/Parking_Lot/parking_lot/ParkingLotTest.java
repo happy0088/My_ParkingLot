@@ -16,8 +16,6 @@ import com.go_jek.Parking_Lot.parking_lot.utils.Constants.VehicleType;
 
 public class ParkingLotTest {
 
-	ParkingLot parkingLot1 = ParkingLot.getInstance();
-	ParkingLot parkingLot2 = ParkingLot.getInstance();
 	ParkingService parkingService = new ParkingService();
 	String registrationNumber1 = "ABC-123-345";
 	String color1 = "White";
@@ -33,7 +31,7 @@ public class ParkingLotTest {
 		parkingService.park(registrationNumber1, color1);
 		oldLot = parkingService.getAvailableSlotCount();
 
-		ParkingLot parkingLot1 = ParkingLot.getInstance();
+	//	ParkingLot parkingLot1 = ParkingLot.getInstance();
 		newLot = parkingService.getAvailableSlotCount();
 		assertEquals(oldLot, newLot);
 	}

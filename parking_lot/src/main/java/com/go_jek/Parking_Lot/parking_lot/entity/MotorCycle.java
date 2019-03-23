@@ -11,16 +11,13 @@ public class MotorCycle extends Vehicle {
 	}
 
 	public Vehicle initializeVehicle(String registrationNumber, String color) {
-		BASE_INSTANCE.setRegistrationNumber(registrationNumber);
-		BASE_INSTANCE.setColor(color);
-		BASE_INSTANCE.setSpotsNeeded(1);
-		return BASE_INSTANCE;
+		return new MotorCycle(registrationNumber, color);
 	}
 
 	public MotorCycle(String registrationNumber, String color) {
-		spotsNeeded = 1;
-		this.registrationNumber = registrationNumber;
 		this.color = color;
+		this.registrationNumber = registrationNumber;
+		this.spotsNeeded = 1;
 	}
 
 	public boolean canFitInSpot(ParkingSpot spot) {
