@@ -103,7 +103,7 @@ public class ParkingService {
 			return null;
 		}
 		if (registrationSlotMap.isEmpty()) {
-			outPutMessage = "Parking is empty";
+			outPutMessage = Constants.PARKING_EMPTY;
 			Printer.printMessage(outPutMessage, true);
 			return null;
 		} else {
@@ -116,7 +116,8 @@ public class ParkingService {
 				}
 			});
 
-			outPutMessage = String.format(Constants.HEADER_STRING_FORMAT, "Slot No.", "Registration No", "Colour");
+			outPutMessage = String.format(Constants.HEADER_STRING_FORMAT, Constants.HEADER_SLOT_NO,
+					Constants.HEADER_REGISTRATION_NO, Constants.HEADER_COLOR);
 			Printer.printMessage(outPutMessage, true);
 			for (Entry<String, Integer> entry : list) {
 				outPutMessage = String.format(Constants.DATA_STRING_FORMAT, entry.getValue().toString(), entry.getKey(),
@@ -131,12 +132,12 @@ public class ParkingService {
 
 	public String getRegistrationNumbersFromColor(String color) {
 		if (availableSlots == null) {
-			outPutMessage = "Error! , Please Create ParkingLot First";
+			outPutMessage = Constants.PARKING_LOT_UNAVAILABLE;
 			Printer.printMessage(outPutMessage, true);
 			return outPutMessage;
 		}
 		int count = 1;
-		String registrations = "";
+		String registrations = Constants.EMPTY_STRING;
 		for (Entry<String, String> entry : registrationColorMap.entrySet()) {
 			if (entry.getValue().equals(color)) {
 				if (count > 1) {
@@ -150,8 +151,7 @@ public class ParkingService {
 			}
 		}
 		if (count == 1) {
-			outPutMessage = "Not found";
-			Printer.printMessage(outPutMessage, true);
+			Printer.printMessage(Constants.NOT_FOUND, true);
 		} else
 			Printer.printMessage(Constants.EMPTY_STRING, true);
 		return registrations;
@@ -159,30 +159,27 @@ public class ParkingService {
 
 	public int getSlotNumberFromRegNo(String registrationNumber) {
 		if (availableSlots == null) {
-			outPutMessage = "Error! , Please Create ParkingLot First";
-			Printer.printMessage(outPutMessage, true);
+			Printer.printMessage(Constants.PARKING_LOT_UNAVAILABLE, true);
 			return 0;
 		}
 		Integer regNumber = registrationSlotMap.get(registrationNumber);
 		if (regNumber == null) {
-			outPutMessage = "Not found";
-			Printer.printMessage(outPutMessage, true);
+			Printer.printMessage(Constants.NOT_FOUND, true);
 			return 0;
 		} else {
-			outPutMessage = regNumber.toString();
-			Printer.printMessage(outPutMessage, true);
+			Printer.printMessage(regNumber.toString(), true);
 			return regNumber;
 		}
 	}
 
 	public String getSlotNumbersFromColor(String color) {
 		if (availableSlots == null) {
-			outPutMessage = "Error! , Please Create ParkingLot First";
+			outPutMessage = Constants.PARKING_LOT_UNAVAILABLE;
 			Printer.printMessage(outPutMessage, true);
 			return outPutMessage;
 		}
 		int count = 1;
-		String registrationNumbers = "";
+		String registrationNumbers = Constants.EMPTY_STRING;
 		for (Entry<String, String> entry : registrationColorMap.entrySet()) {
 			if (entry.getValue().equals(color)) {
 				if (count > 1) {
