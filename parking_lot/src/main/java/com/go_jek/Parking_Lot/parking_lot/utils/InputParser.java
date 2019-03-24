@@ -36,7 +36,7 @@ public class InputParser {
 		} catch (Exception ex) {
 			Printer.printMessage(Constants.ERROR_READING_FILE, true);
 		} finally {
-			if(null!= br)
+			if (null != br)
 				br.close();
 		}
 	}
