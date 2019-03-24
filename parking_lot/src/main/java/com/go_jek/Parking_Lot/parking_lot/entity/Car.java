@@ -1,5 +1,6 @@
 package com.go_jek.Parking_Lot.parking_lot.entity;
 
+import com.go_jek.Parking_Lot.parking_lot.utils.Constants.ParkingSpotType;
 import com.go_jek.Parking_Lot.parking_lot.utils.Printer;
 
 public class Car extends Vehicle {
@@ -17,7 +18,7 @@ public class Car extends Vehicle {
 		this.color = color;
 		this.registrationNumber = registrationNumber;
 		this.spotsNeeded = 1;
-		this.parkingSpotType=parkingSpotType.SMALL;
+		this.parkingSpotType = ParkingSpotType.SMALL;
 	}
 
 	public boolean canFitInSpot(ParkingSpot spot) {

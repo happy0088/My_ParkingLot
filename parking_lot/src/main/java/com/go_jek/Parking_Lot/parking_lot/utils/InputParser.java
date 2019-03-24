@@ -23,23 +23,21 @@ public class InputParser {
 		controller.fireCommand(inputs);
 	}
 
-	public void parseFileInput(String filePath) {
+	public void parseFileInput(String filePath) throws IOException {
 		// Assuming input to be a valid file path.
 		File inputFile = new File(filePath);
+		BufferedReader br = null;
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(inputFile));
+			br = new BufferedReader(new FileReader(inputFile));
 			String line;
-			try {
-				while ((line = br.readLine()) != null) {
-					parseTextInput(line.trim());
-				}
-			} catch (IOException ex) {
-				Printer.printMessage(Constants.ERROR_READING_FILE, true);
-				ex.printStackTrace();
+			while ((line = br.readLine()) != null) {
+				parseTextInput(line.trim());
 			}
-		} catch (FileNotFoundException e) {
-			Printer.printMessage(Constants.FILE_NOT_FOUND, true);
-			e.printStackTrace();
+		} catch (Exception ex) {
+			Printer.printMessage(Constants.ERROR_READING_FILE, true);
+		} finally {
+			if(null!= br)
+				br.close();
 		}
 	}
 }

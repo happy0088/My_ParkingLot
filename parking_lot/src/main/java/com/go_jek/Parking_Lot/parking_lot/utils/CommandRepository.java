@@ -15,33 +15,25 @@ import com.go_jek.Parking_Lot.parking_lot.command.UnParkVehicle;
 
 public class CommandRepository {
 
-	public Map<String, ICommand> commandsMap;
 	CommandController controller = new CommandController();
-	ICommand parkVechicle = new ParkVehicle();
-	ICommand unparkVehicle = new UnParkVehicle();
-	ICommand createParkingLot = new CreateParkingLot();
-	ICommand status = new Status();
-	ICommand getRegistrationNumbersFromColor = new GetRegistrationNumbersFromColor();
-	ICommand getSlotNumbersFromColor = new GetSlotNumbersFromColor();
-	ICommand getSlotNumberFromRegNo = new GetSlotNumberFromRegNo();
+	static ICommand parkVechicle = new ParkVehicle();
+	static ICommand unparkVehicle = new UnParkVehicle();
+	static ICommand createParkingLot = new CreateParkingLot();
+	static ICommand status = new Status();
+	static ICommand getRegistrationNumbersFromColor = new GetRegistrationNumbersFromColor();
+	static ICommand getSlotNumbersFromColor = new GetSlotNumbersFromColor();
+	static ICommand getSlotNumberFromRegNo = new GetSlotNumberFromRegNo();
 
-	public CommandRepository() {
-		commandsMap = new HashMap<String, ICommand>();
-		try {
-			populateCommandsHashMap();
-		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
+	public static final Map<String, ICommand> commandsMap = new HashMap<String, ICommand>() {
+		{
+			put(Constants.CREATE_PARKING_LOT, createParkingLot);
+			put(Constants.PARK, parkVechicle);
+			put(Constants.LEAVE, unparkVehicle);
+			put(Constants.STATUS, status);
+			put(Constants.REGISTRATION_NUMBERS_FOR_CARS_WITH_COLOUR, getRegistrationNumbersFromColor);
+			put(Constants.SLOT_NUMBERS_FOR_CARS_WITH_COLOUR, getSlotNumbersFromColor);
+			put(Constants.SLOT_NUMBER_FOR_REGISTRATION_NUMBER, getSlotNumberFromRegNo);
 		}
-	}
+	};
 
-	private void populateCommandsHashMap() throws NoSuchMethodException {
-		commandsMap.put(Constants.CREATE_PARKING_LOT, createParkingLot);
-		commandsMap.put(Constants.PARK, parkVechicle);
-		commandsMap.put(Constants.LEAVE, unparkVehicle);
-		commandsMap.put(Constants.STATUS, status);
-		commandsMap.put(Constants.REGISTRATION_NUMBERS_FOR_CARS_WITH_COLOUR, getRegistrationNumbersFromColor);
-		commandsMap.put(Constants.SLOT_NUMBERS_FOR_CARS_WITH_COLOUR, getSlotNumbersFromColor);
-		commandsMap.put(Constants.SLOT_NUMBER_FOR_REGISTRATION_NUMBER, getSlotNumberFromRegNo);
-
-	}
 }

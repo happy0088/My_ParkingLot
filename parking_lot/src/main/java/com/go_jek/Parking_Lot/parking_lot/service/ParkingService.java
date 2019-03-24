@@ -46,15 +46,14 @@ public class ParkingService {
 		return false;
 	}
 
-	public String vacateParkingLot()
-	{
+	public String vacateParkingLot() {
 		availableSlots.clear();
 		registrationColorMap.clear();
 		registrationSlotMap.clear();
 		return null;
-		
+
 	}
-	
+
 	public String createParkingLot(String size) {
 		allocateFreeSlots(Integer.parseInt(size));
 		outPutMessage = Constants.CREATED_PARKING_LOT_WITH + size + Constants.SLOTS;
@@ -78,8 +77,8 @@ public class ParkingService {
 			int location = availableSlots.first();
 			registrationSlotMap.put(vehicle.getRegistrationNumber(), location);
 			registrationColorMap.put(vehicle.getRegistrationNumber(), vehicle.getColor());
-			outPutMessage = Constants.ALLOCATED_SLOT_NUMBER+ location;
-			Printer.printMessage(outPutMessage , true);
+			outPutMessage = Constants.ALLOCATED_SLOT_NUMBER + location;
+			Printer.printMessage(outPutMessage, true);
 			availableSlots.remove(location);
 			return vehicle.getRegistrationNumber();
 		} else {
@@ -110,12 +109,12 @@ public class ParkingService {
 	public List status() {
 		if (availableSlots == null) {
 			Printer.printMessage(Constants.PARKING_LOT_UNAVAILABLE, true);
-			return null;
+			return new ArrayList<>();
 		}
 		if (registrationSlotMap.isEmpty()) {
 			outPutMessage = Constants.PARKING_EMPTY;
 			Printer.printMessage(outPutMessage, true);
-			return null;
+			return new ArrayList<>();
 		} else {
 
 			Set<Entry<String, Integer>> set = registrationSlotMap.entrySet();

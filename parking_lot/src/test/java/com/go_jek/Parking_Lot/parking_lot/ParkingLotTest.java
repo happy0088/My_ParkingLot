@@ -29,8 +29,6 @@ public class ParkingLotTest {
 		parkingService.createParkingLot("6");
 		parkingService.park(registrationNumber1, color1);
 		oldLot = parkingService.getAvailableSlotCount();
-
-		// ParkingLot parkingLot1 = ParkingLot.getInstance();
 		newLot = parkingService.getAvailableSlotCount();
 		assertEquals(oldLot, newLot);
 	}
