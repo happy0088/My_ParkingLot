@@ -1,12 +1,11 @@
-package main.com.gojek.parking_lot;
-
+package com.go_jek.Parking_Lot.parking_lot;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import main.com.gojek.parking_lot.utils.Constants;
-import main.com.gojek.parking_lot.utils.InputParser;
-import main.com.gojek.parking_lot.utils.Printer;
+import com.go_jek.Parking_Lot.parking_lot.utils.Constants;
+import com.go_jek.Parking_Lot.parking_lot.utils.InputParser;
+import com.go_jek.Parking_Lot.parking_lot.utils.Printer;
 
 public class MainDriver {
 

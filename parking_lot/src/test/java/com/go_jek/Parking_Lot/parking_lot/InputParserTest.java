@@ -1,9 +1,9 @@
-package test.com.gojek.parking_lot;
+package com.go_jek.Parking_Lot.parking_lot;
 
 import org.junit.Test;
 
-import main.com.gojek.parking_lot.utils.InputParser;
-import main.com.gojek.parking_lot.utils.Printer;
+import com.go_jek.Parking_Lot.parking_lot.utils.InputParser;
+import com.go_jek.Parking_Lot.parking_lot.utils.Printer;
 
 public class InputParserTest {
 
@@ -12,6 +12,9 @@ public class InputParserTest {
 	@Test
 	public void checkTextInputType() {
 		Printer.printMessage("checkTextInputType test",true);
+		parser.parseFileInput("file_inputs.txt");
+		String args[] = {""};
+		MainDriver.main(args);
 	}
 
 }
