@@ -1,4 +1,3 @@
-//package com.go_jek.Parking_Lot.parking_lot;
 package com.go_jek.Parking_Lot.parking_lot;
 import java.io.BufferedReader;
 import java.io.IOException;
