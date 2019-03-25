@@ -12,7 +12,6 @@ public class GetSlotNumberFromRegNo implements ICommand {
 	@Override
 	public String execute(String[] args) throws InvalidInputException {
 		try {
-			// service.getSlotNumberFromRegNo(args[1]);
 			String registrationNumber = args[1];
 			if (ParkingService.availableSlots == null) {
 				Printer.printMessage(Constants.PARKING_LOT_UNAVAILABLE, true);

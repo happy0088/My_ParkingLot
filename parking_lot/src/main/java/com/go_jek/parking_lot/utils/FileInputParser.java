@@ -7,23 +7,12 @@ import java.io.FileReader;
 import com.go_jek.parking_lot.command.CommandController;
 import com.go_jek.parking_lot.exception.InvalidInputException;
 
-public class InputParser {
+public class FileInputParser {
 	CommandRepository commands;
 	CommandController controller = new CommandController();
 
-	public InputParser() {
+	public FileInputParser() {
 		commands = new CommandRepository();
-	}
-
-	public void parseTextInput(String inputString) {
-		// Split the input string to get command and input value
-		String[] inputs = inputString.split(Constants.INPUT_STRING_DELIMETER);
-		controller.setCommand(CommandRepository.commandsMap.get(inputs[0]));
-		try {
-			controller.fireCommand(inputs);
-		} catch (InvalidInputException e) {
-			Printer.printMessage(Constants.INPUT_ERROR, true);
-		}
 	}
 
 	public void parseFileInput(String filePath) throws InvalidInputException {
@@ -32,7 +21,7 @@ public class InputParser {
 		try (BufferedReader br = new BufferedReader(new FileReader(inputFile));) {
 			String line;
 			while ((line = br.readLine()) != null) {
-				parseTextInput(line.trim());
+				new TextInputParser().parseTextInput(line.trim());
 			}
 		} catch (Exception ex) {
 			Printer.printMessage(Constants.ERROR_READING_FILE, true);

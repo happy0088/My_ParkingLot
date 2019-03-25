@@ -18,7 +18,6 @@ public class ParkVehicle implements ICommand {
 			String outPutMessage = "";
 			String regNumber = args[1];
 			String color = args[2];
-			// service.park(args[1], args[2], Constants.DEFAULT_VEHICLE);
 			if (ParkingService.availableSlots == null) {
 				outPutMessage = Constants.PARKING_LOT_UNAVAILABLE;
 				Printer.printMessage(outPutMessage, true);

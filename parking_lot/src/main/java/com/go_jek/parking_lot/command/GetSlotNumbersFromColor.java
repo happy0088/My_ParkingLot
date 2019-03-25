@@ -14,9 +14,8 @@ public class GetSlotNumbersFromColor implements ICommand {
 	@Override
 	public String execute(String[] args) throws InvalidInputException {
 		try {
-			String outPutMessage="";
-			String color=args[1];
-			//service.getSlotNumbersFromColor(args[1]);
+			String outPutMessage = "";
+			String color = args[1];
 			if (ParkingService.availableSlots == null) {
 				outPutMessage = Constants.PARKING_LOT_UNAVAILABLE;
 				Printer.printMessage(outPutMessage, true);

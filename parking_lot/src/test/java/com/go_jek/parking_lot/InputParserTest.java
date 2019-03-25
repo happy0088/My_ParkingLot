@@ -4,12 +4,12 @@ import org.junit.Test;
 
 import com.go_jek.parking_lot.exception.InvalidInputException;
 import com.go_jek.parking_lot.utils.Constants;
-import com.go_jek.parking_lot.utils.InputParser;
+import com.go_jek.parking_lot.utils.FileInputParser;
 import com.go_jek.parking_lot.utils.Printer;
 
 public class InputParserTest {
 
-	InputParser parser = new InputParser();
+	FileInputParser parser = new FileInputParser();
 
 	@Test
 	public void checkTextInputType() {

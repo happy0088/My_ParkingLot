@@ -16,7 +16,6 @@ public class GetRegistrationNumbersFromColor implements ICommand {
 		try {
 			String outPutMessage = "";
 			String color = args[1];
-			// service.getRegistrationNumbersFromColor(args[1]);
 			if (ParkingService.availableSlots == null) {
 				outPutMessage = Constants.PARKING_LOT_UNAVAILABLE;
 				Printer.printMessage(outPutMessage, true);

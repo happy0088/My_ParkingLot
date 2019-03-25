@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import com.go_jek.parking_lot.service.ParkingService;
 import com.go_jek.parking_lot.utils.Constants;
@@ -18,8 +18,7 @@ public class Status implements ICommand {
 
 	@Override
 	public String execute(String[] args) {
-		//service.status();
-		String outPutMessage="";
+		String outPutMessage = "";
 		if (ParkingService.availableSlots == null) {
 			Printer.printMessage(Constants.PARKING_LOT_UNAVAILABLE, true);
 			return new ArrayList<>().toString();

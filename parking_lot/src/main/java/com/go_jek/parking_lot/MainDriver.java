@@ -6,14 +6,16 @@ import java.io.InputStreamReader;
 
 import com.go_jek.parking_lot.exception.InvalidInputException;
 import com.go_jek.parking_lot.utils.Constants;
-import com.go_jek.parking_lot.utils.InputParser;
+import com.go_jek.parking_lot.utils.FileInputParser;
 import com.go_jek.parking_lot.utils.Printer;
+import com.go_jek.parking_lot.utils.TextInputParser;
 
 public class MainDriver {
 
 	public static void main(String[] args) {
 
-		InputParser inputParser = new InputParser();
+		TextInputParser textInputParser = new TextInputParser();
+		FileInputParser fileInputParser = new FileInputParser();
 		switch (args.length) {
 		case 0:
 			while (true) {
@@ -25,7 +27,7 @@ public class MainDriver {
 					} else if ((inputString.isEmpty())) {
 						// Do nothing
 					} else {
-						inputParser.parseTextInput(inputString.trim());
+						textInputParser.parseTextInput(inputString.trim());
 					}
 				} catch (IOException e) {
 					Printer.printMessage(Constants.ERROR_READING_CONSOLE, true);
@@ -34,7 +36,7 @@ public class MainDriver {
 			break;
 		case 1:
 			try {
-				inputParser.parseFileInput(args[0]);
+				fileInputParser.parseFileInput(args[0]);
 			} catch (InvalidInputException e) {
 				Printer.printMessage(Constants.ERROR_READING_FILE, true);
 			}

@@ -14,7 +14,6 @@ public class UnParkVehicle implements ICommand {
 	@Override
 	public String execute(String[] args) throws InvalidInputException {
 		try {
-			// service.leave(args[1]);
 			String outPutMessage = "";
 			String spot = args[1];
 			if (ParkingService.availableSlots == null) {
