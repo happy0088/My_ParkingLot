@@ -29,4 +29,44 @@ public class ParkingServiceTest {
 		assertEquals(regNumber, outputMessage);
 	}
 
+	@Test
+	public void checkGetRegistrationNumbersFromColor() {
+		String regNumber = "KA 12347";
+		String color = "Amber";
+		service.createParkingLot("10");
+		 service.park(regNumber, color, VehicleType.CAR);
+		String outputMessage = service.getRegistrationNumbersFromColor(color);
+		assertEquals(regNumber, outputMessage);
+	}
+	
+	@Test
+	public void checkGetSlotNumbersFromColor() {
+		String regNumber = "KA 1234";
+		String color = "Red";
+		service.createParkingLot("10");
+		 service.park(regNumber, color, VehicleType.CAR);
+		String outputMessage = service.getSlotNumbersFromColor(color);
+		assertEquals("1", outputMessage);
+	}
+	
+	@Test
+	public void checkGetSlotNumberFromRegNo() {
+		String regNumber = "KA 123456";
+		String color = "Red";
+		service.createParkingLot("10");
+		 service.park(regNumber, color, VehicleType.CAR);
+		int outputMessage = service.getSlotNumberFromRegNo(regNumber);
+		assertEquals(1, outputMessage);
+	}
+	
+	@Test
+	public void checkLeave() {
+		String regNumber = "KA 123456";
+		String color = "Voilet";
+		service.createParkingLot("10");
+		 service.park(regNumber, color, VehicleType.CAR);
+		int outputMessage = service.leave("1");
+		assertEquals(1, outputMessage);
+	}
+	
 }

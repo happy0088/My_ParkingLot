@@ -20,7 +20,7 @@ public class InputParserTest {
 		} catch (IOException e) {
 			Printer.printMessage(Constants.ERROR_READING_FILE, true);
 		}
-		String args[] = {"file_input.txt"};
+		String[] args = {"file_input.txt"};
 		MainDriver.main(args);
 	}
 

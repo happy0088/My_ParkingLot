@@ -17,7 +17,7 @@ public class ParkingLotTest {
 
 	ParkingService parkingService = new ParkingService();
 	String registrationNumber1 = "ABC-123-345";
-	final static String COLOR_WHITE = "White";
+	static final String COLOR_WHITE = "White";
 	Vehicle vehicle1 = new VehicleFactory().getVehicle(VehicleType.CAR, registrationNumber1, COLOR_WHITE);
 	String registrationNumber2 = "DEF-123-345";
 	String color2 = "Black";

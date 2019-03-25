@@ -24,7 +24,7 @@ public class ParkingLot {
 		ParkingLot.parkingLot = parkingLot;
 	}
 
-	public int getNUM_LEVELS() {
+	public int getNumLevels() {
 		return numLevels;
 	}
 

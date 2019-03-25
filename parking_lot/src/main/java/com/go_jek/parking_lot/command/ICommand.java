@@ -9,5 +9,5 @@ package com.go_jek.parking_lot.command;
  */
 public interface ICommand {
 
-	public void execute(String args[]);
+	public void execute(String[] args);
 }
