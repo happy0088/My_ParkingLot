@@ -8,13 +8,13 @@ public class ParkingSpot {
 	private VehicleType spotSize;
 	private int spotNumber;
 	private Level level;
-	private boolean isFree = false;
+	private boolean isFree = true;
 
 	public ParkingSpot(Level lvl, int num, VehicleType size) {
 		level = lvl;
 		spotNumber = num;
 		spotSize = size;
-		isFree = false;
+		isFree = true;
 	}
 
 	public Vehicle getVehicle() {

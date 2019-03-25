@@ -71,7 +71,7 @@ public class ParkingService {
 			Printer.printMessage(outPutMessage, true);
 			return outPutMessage;
 		}
-		if (availableSlots.size() > 0) {
+		if (!availableSlots.isEmpty()) {
 			Vehicle vehicle = new VehicleFactory().getVehicle(vehicleType, regNumber, color);
 			parkVehicle(vehicle);
 			int location = availableSlots.first();
