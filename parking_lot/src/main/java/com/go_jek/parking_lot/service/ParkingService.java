@@ -22,7 +22,7 @@ public class ParkingService {
 	private static Map<String, Integer> registrationSlotMap = new HashMap<String, Integer>();
 	private static Map<String, String> registrationColorMap = new HashMap<String, String>();
 	private static TreeSet<Integer> availableSlots = null;
-	private static ParkingLot parkingLot = ParkingLot.getInstance();
+	private static ParkingLot parkingLot;
 	private static String outPutMessage = "";
 
 	public boolean parkVehicle(Vehicle vehicle) {
@@ -54,9 +54,9 @@ public class ParkingService {
 
 	}
 
-	public String createParkingLot(String size) {
-		allocateFreeSlots(Integer.parseInt(size));
-		outPutMessage = Constants.CREATED_PARKING_LOT_WITH + size + Constants.SLOTS;
+	public String createParkingLot(String slotSize) {
+		allocateFreeSlots(Integer.parseInt(slotSize), Constants.DEFAULT_LEVEL_COUNT);
+		outPutMessage = Constants.CREATED_PARKING_LOT_WITH + slotSize + Constants.SLOTS;
 		Printer.printMessage(outPutMessage, true);
 		return outPutMessage;
 	}
@@ -207,9 +207,10 @@ public class ParkingService {
 		return registrationNumbers;
 	}
 
-	public static void allocateFreeSlots(int size) {
+	public static void allocateFreeSlots(int noOfslots,int noOfLevels) {
+		parkingLot = ParkingLot.getInstance(noOfLevels,noOfslots);
 		availableSlots = new TreeSet<>();
-		for (int i = 1; i <= size; i++) {
+		for (int i = 1; i <= noOfslots; i++) {
 			availableSlots.add(i);
 		}
 	}

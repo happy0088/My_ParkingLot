@@ -5,7 +5,7 @@ import com.go_jek.parking_lot.utils.Constants;
 public class ParkingLot {
 
 	public Level[] levels;
-	private final int numLevels = Constants.DEFAULT_LEVEL_COUNT;
+	private static int numLevels = Constants.DEFAULT_LEVEL_COUNT;
 	private static ParkingLot parkingLot = null;
 
 	public Level[] getLevels() {
@@ -29,16 +29,21 @@ public class ParkingLot {
 	}
 
 	private ParkingLot() {
-		levels = new Level[numLevels];
-		for (int i = 0; i < numLevels; i++) {
-			levels[i] = new Level(i, Constants.DEFAULT_SPOT_COUNT_PER_LEVEL);
+
+	}
+
+	private ParkingLot(int noOflevels, int spotsPerLevel) {
+		numLevels = noOflevels;
+		levels = new Level[noOflevels];
+		for (int i = 0; i < noOflevels; i++) {
+			levels[i] = new Level(i, spotsPerLevel);
 		}
 
 	}
 
-	public static ParkingLot getInstance() {
+	public static ParkingLot getInstance(int noOfLevels, int noOfslots) {
 		if (parkingLot == null)
-			parkingLot = new ParkingLot();
+			parkingLot = new ParkingLot(noOfLevels, noOfslots);
 
 		return parkingLot;
 	}
