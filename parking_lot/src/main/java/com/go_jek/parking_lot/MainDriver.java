@@ -1,17 +1,18 @@
-package main.com.gojek.parking_lot;
+package com.go_jek.parking_lot;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import main.com.gojek.parking_lot.utils.Constants;
-import main.com.gojek.parking_lot.utils.InputParser;
-import main.com.gojek.parking_lot.utils.Printer;
+import com.go_jek.parking_lot.exception.InvalidInputException;
+import com.go_jek.parking_lot.utils.Constants;
+import com.go_jek.parking_lot.utils.InputParser;
+import com.go_jek.parking_lot.utils.Printer;
 
 public class MainDriver {
 
 	public static void main(String[] args) {
-		
+
 		InputParser inputParser = new InputParser();
 		switch (args.length) {
 		case 0:
@@ -21,20 +22,22 @@ public class MainDriver {
 					String inputString = bufferRead.readLine();
 					if (inputString.equalsIgnoreCase(Constants.EXIT)) {
 						break;
-					} else if ((null == inputString) || (inputString.isEmpty())) {
+					} else if ((inputString.isEmpty())) {
 						// Do nothing
 					} else {
 						inputParser.parseTextInput(inputString.trim());
 					}
 				} catch (IOException e) {
 					Printer.printMessage(Constants.ERROR_READING_CONSOLE, true);
-					e.printStackTrace();
 				}
 			}
 			break;
 		case 1:
-			// File input/output
-			inputParser.parseFileInput(args[0]);
+			try {
+				inputParser.parseFileInput(args[0]);
+			} catch (InvalidInputException e) {
+				Printer.printMessage(Constants.ERROR_READING_FILE, true);
+			}
 			break;
 		default:
 			Printer.printMessage(Constants.INVALID_INPUT_WITH_USAGE, true);
