@@ -65,14 +65,14 @@ public class ParkingService {
 		return availableSlots.size();
 	}
 
-	public String park(String regNumber, String color) {
+	public String park(String regNumber, String color, VehicleType vehicleType) {
 		if (availableSlots == null) {
 			outPutMessage = Constants.PARKING_LOT_UNAVAILABLE;
 			Printer.printMessage(outPutMessage, true);
 			return outPutMessage;
 		}
 		if (availableSlots.size() > 0) {
-			Vehicle vehicle = new VehicleFactory().getVehicle(VehicleType.CAR, regNumber, color);
+			Vehicle vehicle = new VehicleFactory().getVehicle(vehicleType, regNumber, color);
 			parkVehicle(vehicle);
 			int location = availableSlots.first();
 			registrationSlotMap.put(vehicle.getRegistrationNumber(), location);

@@ -14,6 +14,7 @@ public class Constants {
 	public static final String NEW_LINE = "\n";
 	public static final String EMPTY_STRING = "";
 	public static final String NOT_FOUND = "Not found";
+	public static final VehicleType DEFAULT_VEHICLE = VehicleType.CAR;
 	public static final String ERROR_READING_CONSOLE = "Error in reading the input from console.";
 	public static final String INVALID_INPUT_WITH_USAGE = "Invalid input !!! Usage: java -jar <jar_file_path> <input_file_path>";
 	public static final String EXIT = "exit";
