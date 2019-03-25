@@ -50,5 +50,10 @@ a) getting "Error: Unable to access jarfile ../../../parking_lot/target/parking_
 	In order to execute the program directly , kindly modify bin/parking_lot entry as below :
 	"java -jar parking_lot/target/parking_lot-0.0.1-SNAPSHOT.jar $1" 
 	
+b) getting "Caused by: java.lang.ClassNotFoundException: org.apache.logging.log4j.LogManager" error while executing the code .
+	Cause - most probably the jar is not getting included in the java classpath.
+	Temporary Fix : 
+		i) comment "static Logger logger = Logger.getLogger(Printer.class);" line in Printer file.
+		ii) replace logger.log with System.out.print();
 
 Cheers !!
