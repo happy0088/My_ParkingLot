@@ -19,13 +19,13 @@ import com.go_jek.parking_lot.utils.Printer;
 
 public class ParkingService {
 
-	private static Map<String, Integer> registrationSlotMap = new HashMap<>();
-	private static Map<String, String> registrationColorMap = new HashMap<>();
-	private static TreeSet<Integer> availableSlots = null;
-	private static ParkingLot parkingLot;
+	public static Map<String, Integer> registrationSlotMap = new HashMap<>();
+	public static Map<String, String> registrationColorMap = new HashMap<>();
+	public static TreeSet<Integer> availableSlots = null;
+	public static ParkingLot parkingLot;
 	private String outPutMessage = "";
 
-	public boolean parkVehicle(Vehicle vehicle) {
+/*	public boolean parkVehicle(Vehicle vehicle) {
 		for (int i = 0; i < parkingLot.levels.length; i++) {
 			if (parkingLot.levels[i].parkVehicle(vehicle)) {
 				return true;
@@ -33,8 +33,8 @@ public class ParkingService {
 		}
 		return false;
 	}
-
-	public boolean unParkVehicle(int spotNumber, String regNumber) {
+*/
+	/*public boolean unParkVehicle(int spotNumber, String regNumber) {
 		for (int i = 0; i < parkingLot.levels.length; i++) {
 			if (parkingLot.levels[i].unParkVehicle(spotNumber)) {
 				registrationColorMap.remove(regNumber);
@@ -44,7 +44,7 @@ public class ParkingService {
 			}
 		}
 		return false;
-	}
+	}*/
 
 	public String vacateParkingLot() {
 		availableSlots.clear();
@@ -54,18 +54,18 @@ public class ParkingService {
 
 	}
 
-	public String createParkingLot(String slotSize) {
+	/*public String createParkingLot(String slotSize) {
 		allocateFreeSlots(Integer.parseInt(slotSize), Constants.DEFAULT_LEVEL_COUNT);
 		outPutMessage = Constants.CREATED_PARKING_LOT_WITH + slotSize + Constants.SLOTS;
 		Printer.printMessage(outPutMessage, true);
 		return outPutMessage;
-	}
+	}*/
 
 	public int getAvailableSlotCount() {
 		return availableSlots.size();
 	}
 
-	public String park(String regNumber, String color, VehicleType vehicleType) {
+	/*public String park(String regNumber, String color, VehicleType vehicleType) {
 		if (availableSlots == null) {
 			outPutMessage = Constants.PARKING_LOT_UNAVAILABLE;
 			Printer.printMessage(outPutMessage, true);
@@ -87,9 +87,9 @@ public class ParkingService {
 			Printer.printMessage(Constants.PARKING_FULL, true);
 		}
 		return outPutMessage;
-	}
+	}*/
 
-	public int leave(String spot) {
+	/*public int leave(String spot) {
 		if (availableSlots == null) {
 			Printer.printMessage(Constants.PARKING_LOT_UNAVAILABLE, true);
 			return 0;
@@ -105,9 +105,9 @@ public class ParkingService {
 		}
 		return 0;
 
-	}
+	}*/
 
-	public List status() {
+	/*public List status() {
 		if (availableSlots == null) {
 			Printer.printMessage(Constants.PARKING_LOT_UNAVAILABLE, true);
 			return new ArrayList<>();
@@ -139,8 +139,8 @@ public class ParkingService {
 		}
 
 	}
-
-	public String getRegistrationNumbersFromColor(String color) {
+*/
+	/*public String getRegistrationNumbersFromColor(String color) {
 		if (availableSlots == null) {
 			outPutMessage = Constants.PARKING_LOT_UNAVAILABLE;
 			Printer.printMessage(outPutMessage, true);
@@ -166,9 +166,9 @@ public class ParkingService {
 			Printer.printMessage(Constants.EMPTY_STRING, true);
 		}
 		return registrations;
-	}
+	}*/
 
-	public int getSlotNumberFromRegNo(String registrationNumber) {
+	/*public int getSlotNumberFromRegNo(String registrationNumber) {
 		if (availableSlots == null) {
 			Printer.printMessage(Constants.PARKING_LOT_UNAVAILABLE, true);
 			return 0;
@@ -181,9 +181,9 @@ public class ParkingService {
 			Printer.printMessage(regNumber.toString(), true);
 			return regNumber;
 		}
-	}
+	}*/
 
-	public String getSlotNumbersFromColor(String color) {
+	/*public String getSlotNumbersFromColor(String color) {
 		if (availableSlots == null) {
 			outPutMessage = Constants.PARKING_LOT_UNAVAILABLE;
 			Printer.printMessage(outPutMessage, true);
@@ -207,7 +207,7 @@ public class ParkingService {
 			Printer.printMessage(Constants.EMPTY_STRING, true);
 		}
 		return registrationNumbers;
-	}
+	}*/
 
 	public static void allocateFreeSlots(int noOfslots, int noOfLevels) {
 		parkingLot = ParkingLot.getInstance(noOfLevels, noOfslots);
@@ -217,8 +217,8 @@ public class ParkingService {
 		}
 	}
 
-	public void issueTicket(Vehicle vehicle) {
+	/*public void issueTicket(Vehicle vehicle) {
 		Printer.printTicket(vehicle);
 	}
-
+*/
 }
