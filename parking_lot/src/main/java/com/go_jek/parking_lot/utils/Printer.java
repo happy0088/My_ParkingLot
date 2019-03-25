@@ -5,6 +5,11 @@ import org.apache.log4j.Logger;
 import com.go_jek.parking_lot.entity.Vehicle;
 
 public class Printer {
+
+	private Printer() {
+
+	}
+
 	static Logger logger = Logger.getLogger(Printer.class);
 
 	public static void printMessage(String message, boolean hasNewLine) {
@@ -15,8 +20,8 @@ public class Printer {
 	}
 
 	public static void printTicket(Vehicle vehicle) {
-		/*calls for priniting ticket to the driver .*/
-		String message = "Printing ticket for the Vehicle";
+		/* calls for priniting ticket to the driver . */
+		String message = "Printing ticket for the Vehicle" + vehicle;
 	}
 
 }

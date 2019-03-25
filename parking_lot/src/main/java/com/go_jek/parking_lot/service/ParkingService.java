@@ -19,11 +19,11 @@ import com.go_jek.parking_lot.utils.Printer;
 
 public class ParkingService {
 
-	private static Map<String, Integer> registrationSlotMap = new HashMap<String, Integer>();
-	private static Map<String, String> registrationColorMap = new HashMap<String, String>();
+	private static Map<String, Integer> registrationSlotMap = new HashMap<>();
+	private static Map<String, String> registrationColorMap = new HashMap<>();
 	private static TreeSet<Integer> availableSlots = null;
 	private static ParkingLot parkingLot;
-	private static String outPutMessage = "";
+	private String outPutMessage = "";
 
 	public boolean parkVehicle(Vehicle vehicle) {
 		for (int i = 0; i < parkingLot.levels.length; i++) {
@@ -119,7 +119,7 @@ public class ParkingService {
 		} else {
 
 			Set<Entry<String, Integer>> set = registrationSlotMap.entrySet();
-			List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
+			List<Entry<String, Integer>> list = new ArrayList<>(set);
 			Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
 				public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
 					return (o1.getValue()).compareTo(o2.getValue());
@@ -162,8 +162,9 @@ public class ParkingService {
 		}
 		if (count == 1) {
 			Printer.printMessage(Constants.NOT_FOUND, true);
-		} else
+		} else {
 			Printer.printMessage(Constants.EMPTY_STRING, true);
+		}
 		return registrations;
 	}
 
@@ -202,13 +203,14 @@ public class ParkingService {
 		}
 		if (count == 1) {
 			Printer.printMessage(Constants.NOT_FOUND, true);
-		} else
+		} else {
 			Printer.printMessage(Constants.EMPTY_STRING, true);
+		}
 		return registrationNumbers;
 	}
 
-	public static void allocateFreeSlots(int noOfslots,int noOfLevels) {
-		parkingLot = ParkingLot.getInstance(noOfLevels,noOfslots);
+	public static void allocateFreeSlots(int noOfslots, int noOfLevels) {
+		parkingLot = ParkingLot.getInstance(noOfLevels, noOfslots);
 		availableSlots = new TreeSet<>();
 		for (int i = 1; i <= noOfslots; i++) {
 			availableSlots.add(i);
