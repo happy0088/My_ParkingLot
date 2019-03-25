@@ -1,5 +1,6 @@
 package com.go_jek.parking_lot.utils;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
 import com.go_jek.parking_lot.entity.Vehicle;
@@ -7,7 +8,7 @@ import com.go_jek.parking_lot.entity.Vehicle;
 public class Printer {
 
 	private Printer() {
-
+		BasicConfigurator.configure();
 	}
 
 	static Logger logger = Logger.getLogger(Printer.class);
