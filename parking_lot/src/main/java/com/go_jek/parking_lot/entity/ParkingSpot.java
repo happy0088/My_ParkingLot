@@ -1,16 +1,17 @@
 package com.go_jek.parking_lot.entity;
 
+import com.go_jek.parking_lot.utils.Constants.ParkingSpotType;
 import com.go_jek.parking_lot.utils.Constants.VehicleType;
 
 public class ParkingSpot {
 
 	private Vehicle vehicle;
-	private VehicleType spotSize;
+	private ParkingSpotType spotSize;
 	private int spotNumber;
 	private Level level;
 	private boolean isFree = true;
 
-	public ParkingSpot(Level lvl, int num, VehicleType size) {
+	public ParkingSpot(Level lvl, int num, ParkingSpotType size) {
 		level = lvl;
 		spotNumber = num;
 		spotSize = size;
@@ -25,11 +26,11 @@ public class ParkingSpot {
 		this.vehicle = vehicle;
 	}
 
-	public VehicleType getSpotSize() {
+	public ParkingSpotType getSpotSize() {
 		return spotSize;
 	}
 
-	public void setSpotSize(VehicleType spotSize) {
+	public void setSpotSize(ParkingSpotType spotSize) {
 		this.spotSize = spotSize;
 	}
 

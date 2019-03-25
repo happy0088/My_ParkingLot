@@ -1,7 +1,7 @@
 package com.go_jek.parking_lot.entity;
 
 import com.go_jek.parking_lot.utils.Constants;
-import com.go_jek.parking_lot.utils.Constants.VehicleType;
+import com.go_jek.parking_lot.utils.Constants.ParkingSpotType;
 
 public class Level {
 
@@ -35,7 +35,7 @@ public class Level {
 
 	public Level(int flr, int numberSpots) {
 		floor = flr;
-		VehicleType size = Constants.DEFAULT_VEHICLE;
+		ParkingSpotType size = Constants.DEFAULT_PARKINGSPOT_TYPE;
 		spots = new ParkingSpot[numberSpots];
 		for (int i = 0; i < numberSpots; i++) {
 			spots[i] = new ParkingSpot(this, i, size);
