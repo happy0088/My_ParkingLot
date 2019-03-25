@@ -9,6 +9,9 @@ import com.go_jek.parking_lot.entity.Vehicle;
 import com.go_jek.parking_lot.utils.Constants.VehicleType;
 
 public class VechicleRepository {
+	private VechicleRepository() {
+
+	}
 
 	public static final Map<VehicleType, Vehicle> vehicleMap = new HashMap<VehicleType, Vehicle>() {
 		{

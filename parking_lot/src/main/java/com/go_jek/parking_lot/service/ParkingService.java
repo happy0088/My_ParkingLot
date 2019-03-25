@@ -19,11 +19,11 @@ import com.go_jek.parking_lot.utils.Printer;
 
 public class ParkingService {
 
-	private static Map<String, Integer> registrationSlotMap = new HashMap<String, Integer>();
-	private static Map<String, String> registrationColorMap = new HashMap<String, String>();
+	private static Map<String, Integer> registrationSlotMap = new HashMap<>();
+	private static Map<String, String> registrationColorMap = new HashMap<>();
 	private static TreeSet<Integer> availableSlots = null;
-	private static ParkingLot parkingLot = ParkingLot.getInstance();
-	private static String outPutMessage = "";
+	private static ParkingLot parkingLot;
+	private String outPutMessage = "";
 
 	public boolean parkVehicle(Vehicle vehicle) {
 		for (int i = 0; i < parkingLot.levels.length; i++) {
@@ -54,9 +54,9 @@ public class ParkingService {
 
 	}
 
-	public String createParkingLot(String size) {
-		allocateFreeSlots(Integer.parseInt(size));
-		outPutMessage = Constants.CREATED_PARKING_LOT_WITH + size + Constants.SLOTS;
+	public String createParkingLot(String slotSize) {
+		allocateFreeSlots(Integer.parseInt(slotSize), Constants.DEFAULT_LEVEL_COUNT);
+		outPutMessage = Constants.CREATED_PARKING_LOT_WITH + slotSize + Constants.SLOTS;
 		Printer.printMessage(outPutMessage, true);
 		return outPutMessage;
 	}
@@ -65,14 +65,14 @@ public class ParkingService {
 		return availableSlots.size();
 	}
 
-	public String park(String regNumber, String color) {
+	public String park(String regNumber, String color, VehicleType vehicleType) {
 		if (availableSlots == null) {
 			outPutMessage = Constants.PARKING_LOT_UNAVAILABLE;
 			Printer.printMessage(outPutMessage, true);
 			return outPutMessage;
 		}
-		if (availableSlots.size() > 0) {
-			Vehicle vehicle = new VehicleFactory().getVehicle(VehicleType.CAR, regNumber, color);
+		if (!availableSlots.isEmpty()) {
+			Vehicle vehicle = new VehicleFactory().getVehicle(vehicleType, regNumber, color);
 			parkVehicle(vehicle);
 			int location = availableSlots.first();
 			registrationSlotMap.put(vehicle.getRegistrationNumber(), location);
@@ -80,6 +80,7 @@ public class ParkingService {
 			outPutMessage = Constants.ALLOCATED_SLOT_NUMBER + location;
 			Printer.printMessage(outPutMessage, true);
 			availableSlots.remove(location);
+			issueTicket(vehicle);
 			return vehicle.getRegistrationNumber();
 		} else {
 			outPutMessage = Constants.PARKING_FULL;
@@ -118,7 +119,7 @@ public class ParkingService {
 		} else {
 
 			Set<Entry<String, Integer>> set = registrationSlotMap.entrySet();
-			List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
+			List<Entry<String, Integer>> list = new ArrayList<>(set);
 			Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
 				public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
 					return (o1.getValue()).compareTo(o2.getValue());
@@ -161,8 +162,9 @@ public class ParkingService {
 		}
 		if (count == 1) {
 			Printer.printMessage(Constants.NOT_FOUND, true);
-		} else
+		} else {
 			Printer.printMessage(Constants.EMPTY_STRING, true);
+		}
 		return registrations;
 	}
 
@@ -201,16 +203,22 @@ public class ParkingService {
 		}
 		if (count == 1) {
 			Printer.printMessage(Constants.NOT_FOUND, true);
-		} else
+		} else {
 			Printer.printMessage(Constants.EMPTY_STRING, true);
+		}
 		return registrationNumbers;
 	}
 
-	public static void allocateFreeSlots(int size) {
+	public static void allocateFreeSlots(int noOfslots, int noOfLevels) {
+		parkingLot = ParkingLot.getInstance(noOfLevels, noOfslots);
 		availableSlots = new TreeSet<>();
-		for (int i = 1; i <= size; i++) {
+		for (int i = 1; i <= noOfslots; i++) {
 			availableSlots.add(i);
 		}
+	}
+
+	public void issueTicket(Vehicle vehicle) {
+		Printer.printTicket(vehicle);
 	}
 
 }

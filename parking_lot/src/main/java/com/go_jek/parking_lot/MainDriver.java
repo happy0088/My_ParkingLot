@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import com.go_jek.parking_lot.exception.InvalidInputException;
 import com.go_jek.parking_lot.utils.Constants;
 import com.go_jek.parking_lot.utils.InputParser;
 import com.go_jek.parking_lot.utils.Printer;
@@ -32,10 +33,9 @@ public class MainDriver {
 			}
 			break;
 		case 1:
-			// File input/output
 			try {
 				inputParser.parseFileInput(args[0]);
-			} catch (IOException e) {
+			} catch (InvalidInputException e) {
 				Printer.printMessage(Constants.ERROR_READING_FILE, true);
 			}
 			break;

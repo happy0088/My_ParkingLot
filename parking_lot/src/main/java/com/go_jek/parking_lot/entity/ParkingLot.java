@@ -1,9 +1,11 @@
 package com.go_jek.parking_lot.entity;
 
+import com.go_jek.parking_lot.utils.Constants;
+
 public class ParkingLot {
 
 	public Level[] levels;
-	private final int NUM_LEVELS = 5;
+	private static int numLevels = Constants.DEFAULT_LEVEL_COUNT;
 	private static ParkingLot parkingLot = null;
 
 	public Level[] getLevels() {
@@ -22,21 +24,26 @@ public class ParkingLot {
 		ParkingLot.parkingLot = parkingLot;
 	}
 
-	public int getNUM_LEVELS() {
-		return NUM_LEVELS;
+	public int getNumLevels() {
+		return numLevels;
 	}
 
 	private ParkingLot() {
-		levels = new Level[NUM_LEVELS];
-		for (int i = 0; i < NUM_LEVELS; i++) {
-			levels[i] = new Level(i, 30);
+
+	}
+
+	private ParkingLot(int noOflevels, int spotsPerLevel) {
+		numLevels = noOflevels;
+		levels = new Level[noOflevels];
+		for (int i = 0; i < noOflevels; i++) {
+			levels[i] = new Level(i, spotsPerLevel);
 		}
 
 	}
 
-	public static ParkingLot getInstance() {
+	public static ParkingLot getInstance(int noOfLevels, int noOfslots) {
 		if (parkingLot == null)
-			parkingLot = new ParkingLot();
+			parkingLot = new ParkingLot(noOfLevels, noOfslots);
 
 		return parkingLot;
 	}
