@@ -40,7 +40,7 @@ public class ParkingServiceTest {
 	}
 	
 	@Test
-	public void checkGetSlotNumbersFromColor() {
+	public void checkGetSlotNumbersFromColors() {
 		String regNumber = "KA 1234";
 		String color = "Red";
 		service.createParkingLot("10");
