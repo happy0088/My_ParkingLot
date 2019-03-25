@@ -27,7 +27,7 @@ public class ParkingLotTest {
 	public void testSingletonBehavior() {
 		int oldLot, newLot;
 		parkingService.createParkingLot("6");
-		parkingService.park(registrationNumber1, color1);
+		parkingService.park(registrationNumber1, color1,VehicleType.CAR);
 		oldLot = parkingService.getAvailableSlotCount();
 		newLot = parkingService.getAvailableSlotCount();
 		assertEquals(oldLot, newLot);
@@ -42,7 +42,7 @@ public class ParkingLotTest {
 	@Test
 	public void shouldParkVechicle() {
 		parkingService.createParkingLot("10");
-		parkingService.park(registrationNumber1, color1);
+		parkingService.park(registrationNumber1, color1,VehicleType.CAR);
 		assertEquals(parkingService.getAvailableSlotCount(), 9);
 		String returnRegNumber = parkingService.getRegistrationNumbersFromColor(color1);
 		assertEquals(returnRegNumber.contains(registrationNumber1), true);
@@ -52,17 +52,17 @@ public class ParkingLotTest {
 	@Test
 	public void shouldErrorWhenFull() {
 		parkingService.createParkingLot("10");
-		parkingService.park(registrationNumber1, color1);
-		parkingService.park(registrationNumber2, color2);
-		parkingService.park("ABC-12-12-13", "White");
-		parkingService.park("ABC-12-12-14", "White");
-		parkingService.park("ABC-12-12-15", "White");
-		parkingService.park("ABC-12-12-16", "White");
-		parkingService.park("ABC-12-12-17", "White");
-		parkingService.park("ABC-12-12-18", "White");
-		parkingService.park("ABC-12-12-19", "White");
-		parkingService.park("ABC-12-12-20", "White");
-		String message = parkingService.park(registrationNumber1, color1);
+		parkingService.park(registrationNumber1, color1,VehicleType.CAR);
+		parkingService.park(registrationNumber2, color2,VehicleType.CAR);
+		parkingService.park("ABC-12-12-13", "White",VehicleType.CAR);
+		parkingService.park("ABC-12-12-14", "White",VehicleType.CAR);
+		parkingService.park("ABC-12-12-15", "White",VehicleType.CAR);
+		parkingService.park("ABC-12-12-16", "White",VehicleType.CAR);
+		parkingService.park("ABC-12-12-17", "White",VehicleType.CAR);
+		parkingService.park("ABC-12-12-18", "White",VehicleType.CAR);
+		parkingService.park("ABC-12-12-19", "White",VehicleType.CAR);
+		parkingService.park("ABC-12-12-20", "White",VehicleType.CAR);
+		String message = parkingService.park(registrationNumber1, color1,VehicleType.CAR);
 		assertEquals(true, message.equals(Constants.PARKING_FULL));
 
 	}
@@ -70,7 +70,7 @@ public class ParkingLotTest {
 	@Test
 	public void shouldFreeSpaceOnLeaving() {
 		parkingService.createParkingLot("10");
-		parkingService.park(registrationNumber1, color1);
+		parkingService.park(registrationNumber1, color1,VehicleType.CAR);
 		int spot = parkingService.leave("1");
 		assertEquals(parkingService.getAvailableSlotCount(), 10);
 		assertEquals(spot, 1);
@@ -80,7 +80,7 @@ public class ParkingLotTest {
 	@Test
 	public void shouldNotFreeWrongSpaceOnLeaving() {
 		parkingService.createParkingLot("10");
-		parkingService.park(registrationNumber1, color1);
+		parkingService.park(registrationNumber1, color1,VehicleType.CAR);
 		int spot = parkingService.leave("1");
 		assertEquals(parkingService.getAvailableSlotCount(), 10);
 		assertNotEquals(spot, 2);
@@ -91,8 +91,8 @@ public class ParkingLotTest {
 	public void shouldDisplayAllTheVehicles() {
 		parkingService.vacateParkingLot();
 		parkingService.createParkingLot("10");
-		parkingService.park(registrationNumber1, color1);
-		parkingService.park(registrationNumber2, color2);
+		parkingService.park(registrationNumber1, color1,VehicleType.CAR);
+		parkingService.park(registrationNumber2, color2,VehicleType.CAR);
 		List result = parkingService.status();
 		assertEquals(result.get(0).toString().contains(vehicle1.getRegistrationNumber()), true);
 		assertEquals(result.get(1).toString().contains(vehicle2.getRegistrationNumber()), true);
@@ -103,8 +103,8 @@ public class ParkingLotTest {
 	public void shouldReturnRegistrationForAColor() {
 		parkingService.createParkingLot("10");
 		vehicle2.setColor(color1);
-		parkingService.park(registrationNumber2, color1);
-		parkingService.park(registrationNumber1, color1);
+		parkingService.park(registrationNumber2, color1,VehicleType.CAR);
+		parkingService.park(registrationNumber1, color1,VehicleType.CAR);
 		String returnRegNumber = parkingService.getRegistrationNumbersFromColor(color1);
 		assertEquals(returnRegNumber.contains(registrationNumber1), true);
 		assertEquals(returnRegNumber.contains(registrationNumber2), true);
@@ -113,8 +113,8 @@ public class ParkingLotTest {
 	@Test
 	public void shouldReturnSlotForARegistrationNumber() {
 		parkingService.createParkingLot("2");
-		parkingService.park(registrationNumber1, color1);
-		parkingService.park(registrationNumber2, color2);
+		parkingService.park(registrationNumber1, color1,VehicleType.CAR);
+		parkingService.park(registrationNumber2, color2,VehicleType.CAR);
 		int returnSlotNumber = parkingService.getSlotNumberFromRegNo(registrationNumber1);
 		assertEquals(returnSlotNumber, 1);
 	}
@@ -122,8 +122,8 @@ public class ParkingLotTest {
 	@Test
 	public void shouldNotReturnIncorrectSlotForARegistrationNumber() {
 		parkingService.createParkingLot("2");
-		parkingService.park(registrationNumber1, color1);
-		parkingService.park(registrationNumber2, color2);
+		parkingService.park(registrationNumber1, color1,VehicleType.CAR);
+		parkingService.park(registrationNumber2, color2,VehicleType.CAR);
 		int returnSlotNumber = parkingService.getSlotNumberFromRegNo(registrationNumber1);
 		assertNotEquals(returnSlotNumber, 2);
 	}
@@ -131,8 +131,8 @@ public class ParkingLotTest {
 	@Test
 	public void shouldReturnSlotNumberForAColor() {
 		parkingService.createParkingLot("2");
-		parkingService.park(registrationNumber1, color1);
-		parkingService.park(registrationNumber2, color2);
+		parkingService.park(registrationNumber1, color1,VehicleType.CAR);
+		parkingService.park(registrationNumber2, color2,VehicleType.CAR);
 		String returnSlotNumber = parkingService.getSlotNumbersFromColor(color1);
 		assertEquals(returnSlotNumber.contains("1"), true);
 	}

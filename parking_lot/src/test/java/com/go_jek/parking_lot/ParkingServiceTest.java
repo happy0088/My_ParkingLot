@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import com.go_jek.parking_lot.service.ParkingService;
 import com.go_jek.parking_lot.utils.Constants;
+import com.go_jek.parking_lot.utils.Constants.VehicleType;
 
 public class ParkingServiceTest {
 
@@ -18,13 +19,13 @@ public class ParkingServiceTest {
 		String outputMessage = service.createParkingLot(size);
 		assertEquals(expected, outputMessage);
 	}
-	
+
 	@Test
 	public void checkPark() {
-		String regNumber="KA 1234";
-		String color="Orange";
+		String regNumber = "KA 1234";
+		String color = "Orange";
 		service.createParkingLot("10");
-		String outputMessage = service.park(regNumber, color);
+		String outputMessage = service.park(regNumber, color, VehicleType.CAR);
 		assertEquals(regNumber, outputMessage);
 	}
 
