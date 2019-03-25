@@ -22,7 +22,7 @@ public class InputParser {
 		controller.fireCommand(inputs);
 	}
 
-	public void parseFileInput(String filePath) throws IOException {
+	public void parseFileInput(String filePath)  {
 		// Assuming input to be a valid file path.
 		File inputFile = new File(filePath);
 		try (BufferedReader br = new BufferedReader(new FileReader(inputFile));) {

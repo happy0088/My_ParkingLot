@@ -1,6 +1,8 @@
 package com.go_jek.parking_lot.command;
 
 import com.go_jek.parking_lot.service.ParkingService;
+import com.go_jek.parking_lot.utils.Constants;
+import com.go_jek.parking_lot.utils.Printer;
 
 public class GetSlotNumbersFromColor implements ICommand {
 
@@ -8,7 +10,11 @@ public class GetSlotNumbersFromColor implements ICommand {
 
 	@Override
 	public void execute(String[] args) {
-		service.getSlotNumbersFromColor(args[1]);
+		if (args.length > 0) {
+			service.getSlotNumbersFromColor(args[1]);
+		} else {
+			Printer.printMessage(Constants.INPUT_ERROR, true);
+		}
 	}
 
 }

@@ -53,13 +53,13 @@
 				<version>3.0.2</version>
 				<configuration>
 					<!-- DO NOT include log4j.properties file in the Jar -->
-					<excludes>
+					<!-- <excludes>
 						<exclude>**/log4j.properties</exclude>
-					</excludes>
+					</excludes> -->
 					<archive>
 						<manifest>
 							<!-- Jar file entry point -->
-							<mainClass>main.com.gojek.parking_lot.MainDriver</mainClass>
+							<mainClass>com.go_jek.parking_lot.MainDriver</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
