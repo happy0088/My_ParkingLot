@@ -80,6 +80,7 @@ public class ParkingService {
 			outPutMessage = Constants.ALLOCATED_SLOT_NUMBER + location;
 			Printer.printMessage(outPutMessage, true);
 			availableSlots.remove(location);
+			issueTicket(vehicle);
 			return vehicle.getRegistrationNumber();
 		} else {
 			outPutMessage = Constants.PARKING_FULL;
@@ -211,6 +212,10 @@ public class ParkingService {
 		for (int i = 1; i <= size; i++) {
 			availableSlots.add(i);
 		}
+	}
+
+	public void issueTicket(Vehicle vehicle) {
+		Printer.printTicket(vehicle);
 	}
 
 }
