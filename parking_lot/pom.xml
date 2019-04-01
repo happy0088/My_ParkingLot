@@ -2,7 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.go-jek.parkingLot</groupId>
+	<groupId>com.gojek.parkingLot</groupId>
 	<artifactId>parking_lot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ParkingLot</name>
@@ -26,13 +26,13 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
 			<version>${log4j.version}</version>
-		</dependency>
+		</dependency> -->
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.6.4</version>
@@ -42,7 +42,7 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.6.4</version>
-		</dependency>
+		</dependency> -->
 
 	</dependencies>
 
@@ -70,7 +70,7 @@
 					<archive>
 						<manifest>
 							<!-- Jar file entry point -->
-							<mainClass>com.go_jek.parking_lot.MainDriver</mainClass>
+							<mainClass>com.gojek.parking_lot.MainDriver</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
