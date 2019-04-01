@@ -13,12 +13,14 @@ import com.gojek.parking_lot.command.ParkVehicle;
 import com.gojek.parking_lot.command.Status;
 import com.gojek.parking_lot.command.UnParkVehicle;
 import com.gojek.parking_lot.command.VacateParkingLot;
+import com.gojek.parking_lot.entity.ParkingLot;
 import com.gojek.parking_lot.entity.Vehicle;
 import com.gojek.parking_lot.entity.VehicleFactory;
 import com.gojek.parking_lot.exception.InvalidInputException;
 import com.gojek.parking_lot.service.ParkingService;
 import com.gojek.parking_lot.utils.Constants;
 import com.gojek.parking_lot.utils.Constants.VehicleType;
+import com.gojek.parking_lot.utils.TextInputParser;
 
 public class ParkingLotTest {
 
@@ -37,6 +39,7 @@ public class ParkingLotTest {
 	GetSlotNumberFromRegNo getSlotNumberFromRegNo = new GetSlotNumberFromRegNo();
 	GetSlotNumbersFromColor getSlotNumbersFromColor = new GetSlotNumbersFromColor();
 	VacateParkingLot vacate = new VacateParkingLot();
+	TextInputParser parser = new TextInputParser();
 
 	@Test
 	public void testSingletonBehavior() throws InvalidInputException {
@@ -151,6 +154,17 @@ public class ParkingLotTest {
 		parkVehicle.execute(new String[] { "", registrationNumber2, color2, VehicleType.CAR.name() });
 		String returnSlotNumber = getSlotNumbersFromColor.execute(new String[] { "", COLOR_WHITE });
 		assertEquals(returnSlotNumber.contains("1"), true);
+	}
+	
+	@Test
+	public void shouldParkAndVacateLot() throws InvalidInputException {
+		parser.parseTextInput(Constants.CREATE_PARKING_LOT+ " 6");
+		parser.parseTextInput(Constants.PARK +" KA-14c-2019 BROWN");
+		parser.parseTextInput(Constants.STATUS);
+		String response=parser.parseTextInput(Constants.REGISTRATION_NUMBERS_FOR_CARS_WITH_COLOUR+" BROWN");
+		assertEquals(response.contains("KA-14c-2019"), true);
+		parser.parseTextInput(Constants.VACATE);
+		assertEquals(0,ParkingService.availableSlots.size());
 	}
 
 }

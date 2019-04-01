@@ -10,8 +10,8 @@ public class CommandController {
 	    this.icommand = icommand;
 	    return icommand;
 	  }
-	  public void fireCommand(String[] args) throws InvalidInputException{
-	    icommand.execute(args);
+	  public String  fireCommand(String[] args) throws InvalidInputException{
+	    return icommand.execute(args);
 	  }
 	  
 }

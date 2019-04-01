@@ -12,6 +12,7 @@ import com.gojek.parking_lot.command.ICommand;
 import com.gojek.parking_lot.command.ParkVehicle;
 import com.gojek.parking_lot.command.Status;
 import com.gojek.parking_lot.command.UnParkVehicle;
+import com.gojek.parking_lot.command.VacateParkingLot;
 
 public class CommandRepository {
 
@@ -23,6 +24,7 @@ public class CommandRepository {
 	static ICommand getRegistrationNumbersFromColor = new GetRegistrationNumbersFromColor();
 	static ICommand getSlotNumbersFromColor = new GetSlotNumbersFromColor();
 	static ICommand getSlotNumberFromRegNo = new GetSlotNumberFromRegNo();
+	static ICommand vacate = new VacateParkingLot();
 
 	public static final Map<String, ICommand> commandsMap = new HashMap<String, ICommand>() {
 		{
@@ -33,6 +35,7 @@ public class CommandRepository {
 			put(Constants.REGISTRATION_NUMBERS_FOR_CARS_WITH_COLOUR, getRegistrationNumbersFromColor);
 			put(Constants.SLOT_NUMBERS_FOR_CARS_WITH_COLOUR, getSlotNumbersFromColor);
 			put(Constants.SLOT_NUMBER_FOR_REGISTRATION_NUMBER, getSlotNumberFromRegNo);
+			put(Constants.VACATE, vacate);
 		}
 	};
 

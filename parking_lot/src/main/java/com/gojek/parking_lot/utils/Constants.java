@@ -21,7 +21,7 @@ public class Constants {
 	public static final String ERROR_READING_CONSOLE = "Error in reading the input from console.";
 	public static final String INVALID_INPUT_WITH_USAGE = "Invalid input !!! Usage: java -jar <jar_file_path> <input_file_path>";
 	public static final String EXIT = "exit";
-	public static final String INPUT_ERROR="Invalid Input, Please verify.";
+	public static final String INPUT_ERROR = "Invalid Input, Please verify.";
 	public static final String HEADER_STRING_FORMAT = "%-10s  %10s    %s";
 	public static final String DATA_STRING_FORMAT = "%-10s  %10s      %s ";
 	public static final String ALLOCATED_SLOT_NUMBER = "Allocated slot number: ";
@@ -35,6 +35,7 @@ public class Constants {
 	public static final String HEADER_COLOR = "Colour";
 	public static final String CREATED_PARKING_LOT_WITH = "Created a parking lot with ";
 	public static final String SLOTS = " slots";
+	public static final String VACATE = "vacate";
 
 	public enum VehicleType {
 		CAR, TRUCK, ELECTRIC, VAN, MOTORCYCLE
