@@ -17,12 +17,17 @@ public class ParkingService {
 		return availableSlots.size();
 	}
 
-	public static void allocateFreeSlots(int noOfslots, int noOfLevels) {
-		parkingLot = ParkingLot.getInstance(noOfLevels, noOfslots);
-		availableSlots = new TreeSet<>();
-		for (int i = 1; i <= noOfslots; i++) {
-			availableSlots.add(i);
+	public static int allocateFreeSlots(int noOfslots, int noOfLevels) {
+
+		ParkingLot parkingLotTemp = ParkingLot.getInstance(noOfLevels, noOfslots);
+		if (null == parkingLot || !parkingLot.equals(parkingLotTemp)) {
+			parkingLot = parkingLotTemp;
+			availableSlots = new TreeSet<>();
+			for (int i = 1; i <= noOfslots; i++) {
+				availableSlots.add(i);
+			}
 		}
+		return availableSlots.size();
 	}
 
 }
