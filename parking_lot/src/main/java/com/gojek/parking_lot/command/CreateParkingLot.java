@@ -13,8 +13,8 @@ public class CreateParkingLot implements ICommand {
 	public String execute(String[] args) throws InvalidInputException {
 		try {
 			int slotSize = Integer.parseInt(args[1]);
-			ParkingService.allocateFreeSlots(slotSize, Constants.DEFAULT_LEVEL_COUNT);
-			String outPutMessage = Constants.CREATED_PARKING_LOT_WITH + slotSize + Constants.SLOTS;
+			int size = ParkingService.allocateFreeSlots(slotSize, Constants.DEFAULT_LEVEL_COUNT);
+			String outPutMessage = Constants.CREATED_PARKING_LOT_WITH + size + Constants.SLOTS;
 			Printer.printMessage(outPutMessage, true);
 			return outPutMessage;
 		} catch (Exception ex) {
